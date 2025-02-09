@@ -1,7 +1,18 @@
-#include <iostream> // reading in a library... equivalent of import in python
+#include <iostream> // reading in an external library... equivalent of import in python
 #include <string>
 
+#include "func.h" // reading in a self defined library with self defined functions
+
 // Note, C++ is strongly typed.
+
+double sum(double n1, double n2){
+    return n1 + n2 ;
+}
+
+double sum(double n1, double n2, double n3){ //This is called overloading. 
+    return n1 + n2 + n3;
+}
+
 
 int main(){
     std::cout << "hello"; // prints "hello" to the screen
@@ -66,8 +77,29 @@ int main(){
                 std::cin >> try_again;
             }else{
                 std::cout << "\nCorrect! You are a genius!";
+                try_again = 'N';
             }
         }
+    }else if(part == "FH"){
+        double n1, n2, n3;
+
+        std::cout << "\nEnter a number: ";
+        std::cin >> n1;
+        std::cout << "\nEnter another number: ";
+        std::cin >> n2;
+
+        std::cout << "\nThe sum of "<< n1 << " and " << n2 << " is " << sum(n1, n2);
+        std::cout << "\nEnter another number: ";
+        std::cin >> n3;
+        std::cout << "\nThe sum of "<< n1 << " and " << n2 << " and " << n3 << " is " << sum(n1, n2, n3);
+
+        std::cout << test(3.0, 4.0); 
+        // note to self, to run multiple files such as a function file and a header for it, ensure to update the
+        //tasks.json file appropriately within the args bracket.
+
+        
+
+
     }
 
 
