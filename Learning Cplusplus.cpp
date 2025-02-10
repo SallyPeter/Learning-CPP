@@ -1,5 +1,6 @@
 #include <iostream> // reading in an external library... equivalent of import in python
 #include <string>
+using std::string;
 
 #include "func.h" // reading in a self defined library with self defined functions
 
@@ -98,8 +99,42 @@ int main(){
         //tasks.json file appropriately within the args bracket.
 
         
+    }else if(part == "SC"){
+        std::string our_text = "Here is the given string: This is suppossedly a long, really long text to try out with.";
+        
+        std::cout << our_text;
+        
+        std::string user_input;
 
+        std::cout << 
+        "\nType Erase - Remove part of the string"
+        "\nType Length -  Get the length of a string"
+        "\nType Find - Find a word(s) in the string";
 
+        std::cout <<
+        "\nWhat would you like to do:";
+
+        std::cin >> user_input;
+
+        if (user_input == "Erase"){
+            std::string word2erase;
+            std::cout << "\nEnter the word to erase: ";
+            std::cin >> word2erase;
+            std::cout << "The word " << word2erase << " has been removed." << 
+            our_text.erase(our_text.find(word2erase), word2erase.length());
+        } else if(user_input == "Length"){
+            std::cout << "\nThe length of the given text is " << our_text.length();
+        } else if(user_input == "Find"){
+            std::string word2find;
+            std::cout << "\nEnter the word to find: ";
+            std::cin >> word2find;
+            // std::cout << our_text.find(word2find);
+            if(our_text.find(word2find) > our_text.length()){
+                std::cout <<"\n" << '"' << word2find << "\" is not in the given text.";
+            }else{
+                std::cout << "\nFound your word at index: " << our_text.find(word2find);
+            }
+        }
     }
 
 
